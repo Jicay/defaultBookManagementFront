@@ -1,0 +1,19 @@
+<h2>Add a book</h2>
+<form class="form" [formGroup]="bookForm">
+  <mat-form-field>
+    <mat-label>Title</mat-label>
+    <input id="titleInput" matInput [formControl]="titleControl">
+    <mat-error *ngIf="titleControl.invalid">
+      {{getErrorMessage(titleControl)}}
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input id="authorInput" matInput [formControl]="authorControl">
+    <mat-error *ngIf="authorControl.invalid">
+      {{getErrorMessage(authorControl)}}
+    </mat-error>
+  </mat-form-field>
+  <button id="addBookButton" mat-raised-button color="primary" type="button" (click)="addBook()" [disabled]="!bookForm.valid">Add book
+  </button>
+</form>
